@@ -147,43 +147,97 @@ Falta integrar
 https://www.figma.com/design/tCp01HDp9aw4ZK2l2dIRlU/SistemaDeAsistencia?node-id=119-3&p=f&t=mw94LWMpBFkMuaTz-0
 ## Base de datos
 ```sql
-create database senai_asistencia;
-use senai_asistencia;
+-- ============================================================
+--  BASE DE DATOS: Polleria Tio Guston
+-- ============================================================
 
+CREATE DATABASE Polleria_Tio_Guston;
+USE Polleria_Tio_Guston;
 
-create table cargo (
-id_cargo int auto_increment primary key,
-nombre_cargo varchar(50) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- ============================================================
+--  TABLAS
+-- ============================================================
 
-create table empleado(
-id_empleado int primary key auto_increment,
-nombre varchar(100) not null,
-apellido varchar(100) not null,
-dni varchar(8) unique not null,
-celular varchar(20),
-correo varchar (100) not null unique,
-id_cargo int not null,
-fecha_registro timestamp default current_timestamp,
-foreign key (id_cargo) references cargo(id_cargo)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE cargo (
+    id_cargo     INT          AUTO_INCREMENT PRIMARY KEY,
+    nombre_cargo VARCHAR(50)  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-create table usuario(
-id_usuario int auto_increment primary key,
-roles enum('admin', 'superadmin') default 'admin',
-nombre_usuario varchar (150) not null,
-clave varchar(250) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- ------------------------------------------------------------
 
-create table asistencia(
-id_asistencia int auto_increment primary key,
-fecha date not null,
-hora_entrada timestamp default current_timestamp not null,
-hora_salida timestamp default current_timestamp not null,
-estado enum('asistio', 'tardanza', 'falto') default 'falto' not null,
-id_empleado int not null,
-foreign key (id_empleado) references empleado(id_empleado) ON DELETE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE empleado (
+    id_empleado      INT          AUTO_INCREMENT PRIMARY KEY,
+    nombre           VARCHAR(100) NOT NULL,
+    apellido         VARCHAR(100) NOT NULL,
+    dni              VARCHAR(8)   NOT NULL UNIQUE,
+    celular          VARCHAR(20),
+    genero           ENUM('masculino', 'femenino', 'otro') NOT NULL DEFAULT 'masculino',
+    correo           VARCHAR(100) NOT NULL UNIQUE,
+    id_cargo         INT          NOT NULL,
+    fecha_registro   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cargo) REFERENCES cargo(id_cargo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ------------------------------------------------------------
+
+CREATE TABLE usuario (
+    id_usuario     INT          AUTO_INCREMENT PRIMARY KEY,
+    roles          ENUM('admin', 'superadmin') DEFAULT 'admin',
+    nombre_usuario VARCHAR(150) NOT NULL,
+    clave          VARCHAR(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ------------------------------------------------------------
+
+CREATE TABLE asistencia (
+    id_asistencia INT       AUTO_INCREMENT PRIMARY KEY,
+    fecha         DATE      NOT NULL,
+    hora_entrada  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    hora_salida   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    estado        ENUM('asistio', 'tardanza', 'falto') NOT NULL DEFAULT 'falto',
+    id_empleado   INT       NOT NULL,
+    FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ============================================================
+--  DATOS DE PRUEBA
+-- ============================================================
+
+-- Cargos
+INSERT INTO cargo (nombre_cargo) VALUES
+    ('Administrador'),
+    ('Supervisor'),
+    ('Cajero'),
+    ('Cocinero'),
+    ('Vendedor'),
+    ('Ayudante de cocina'),
+    ('Delivery');
+
+-- Empleados
+INSERT INTO empleado (nombre, apellido, dni, celular, genero, correo, id_cargo) VALUES
+    ('Juan Carlos',     'Perez Gomez',       '12345678', '987654321', 'masculino', 'juan.perez@polleria.com',       1),
+    ('Maria Elena',     'Rodriguez Lopez',   '23456789', '987654322', 'femenino',  'maria.rodriguez@polleria.com',  2),
+    ('Carlos Andres',   'Sanchez Torres',    '34567890', '987654323', 'masculino', 'carlos.sanchez@polleria.com',   3),
+    ('Ana Lucia',       'Martinez Rios',     '45678901', '987654324', 'femenino',  'ana.martinez@polleria.com',     4),
+    ('Roberto Carlos',  'Flores Mendoza',    '56789012', '987654325', 'masculino', 'roberto.flores@polleria.com',   5),
+    ('Patricia Isabel', 'Diaz Castro',       '67890123', '987654326', 'femenino',  'patricia.diaz@polleria.com',    4),
+    ('Fernando Jose',   'Torres Vera',       '78901234', '987654327', 'masculino', 'fernando.torres@polleria.com',  6),
+    ('Carmen Rosa',     'Ramirez Olivos',    '89012345', '987654328', 'femenino',  'carmen.ramirez@polleria.com',   5),
+    ('Javier Alejandro','Gutierrez Prada',   '90123456', '987654329', 'masculino', 'javier.gutierrez@polleria.com', 7),
+    ('Luis Alberto',    'Hernandez Cuba',    '01234567', '987654330', 'masculino', 'luis.hernandez@polleria.com',   3);
+
+-- Usuarios
+INSERT INTO usuario (roles, nombre_usuario, clave) VALUES
+    ('superadmin', 'Roronoa', 'admin123'),
+    ('admin',      'Sanji',   'admin456'),
+    ('admin',      'Sanji',   'ana2024');
+
+-- ============================================================
+--  VERIFICACIÓN
+-- ============================================================
+
+SELECT * FROM cargo;
+SELECT * FROM empleado;
 ```
 
 ### Diagrama Entidad-Relacion (DER)
