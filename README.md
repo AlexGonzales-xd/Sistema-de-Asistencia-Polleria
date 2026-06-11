@@ -245,9 +245,7 @@ Falta integrar
 
  
 ### Modelo Relacional (MR)
-![MODELO_RELACIONAL](<img width="907" height="680" alt="image" src="https://github.com/user-attachments/assets/6d3a5ef7-0b56-4908-a501-d1ec3ff227c4" />
-)
-
+![MODELO_RELACIONAL](https://cdn.phototourl.com/free/2026-06-11-cde85949-bccd-426b-ad70-3e244a43e3a4.png);
 ### Cardinalidades
 
 Las cardinalidades describen cuántos registros de una tabla se relacionan con cuántos de otra.
