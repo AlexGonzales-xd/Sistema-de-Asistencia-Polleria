@@ -263,7 +263,7 @@ Polleria_Tio_Guston/
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/ojitoslanda/employee-attendance-system.git
+   git clone https://github.com/AlexGonzales-xd/Sistema-de-Asistencia-Polleria.git
 cd employee-attendance-system
 
 # 2. Configurar variables de entorno
@@ -280,7 +280,7 @@ cp .env.example .env
 
 Acceder desde el navegador a:
 ```
-http://localhost/Polleria_Tio_Guston/public/
+[http://localhost/](http://localhost/Sistema-de-Asistencia-Polleria-main/)
 ```
 
 Credenciales de acceso inicial:
