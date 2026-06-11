@@ -144,7 +144,7 @@ cp .env.example .env
 Falta integrar
 
 ### DIAGRAMA DE FIGMA UI/UX
-
+https://www.figma.com/design/tCp01HDp9aw4ZK2l2dIRlU/SistemaDeAsistencia?node-id=119-3&p=f&t=mw94LWMpBFkMuaTz-0
 ## Base de datos
 ```sql
 create database senai_asistencia;
