@@ -241,7 +241,7 @@ SELECT * FROM empleado;
 ```
 
 ### Diagrama Entidad-Relacion (DER)
-Falta integrar
+![Diagrama Entidad-Relacional](https://cdn.phototourl.com/free/2026-06-11-5d893e54-2c0b-4fd7-854a-5f2a6d719a17.png);
 
  
 ### Modelo Relacional (MR)
