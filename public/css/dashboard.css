@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f0ebe3;
+    /* crema cálido — mismo que el login */
+    --text: #2c1a0e;
+    /* marrón oscuro */
+    --sidebar-w: 220px;
+    --sidebar-bg: #3d2b1f;
+    /* marrón cacao — mismo que columna izquierda login */
+    --sidebar-line: rgba(255, 255, 255, 0.08);
+    --muted: #b89880;
+    /* beige apagado para items inactivos */
+    --accent: #e8943a;
+    /* naranja ahumado — mismo que botón login */
+    --topbar-bg: #ffffff;
+    --topbar-line: #e0d8d0;
+    --topbar-h: 56px;
+    --danger: #e8705a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* ─── TOPBAR (móvil) ─────────────────────────────── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: var(--topbar-h);
+    background-color: var(--topbar-bg);
+    border-bottom: 1px solid var(--topbar-line);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.topbar .title-business {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text);
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.hamburger:hover {
+    background-color: var(--bg);
+}
+
+/* ─── OVERLAY ────────────────────────────────────── */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 150;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────── */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-line);
+    display: flex;
+    flex-direction: column;
+    z-index: 160;
+    transition: left 0.25s ease;
+    padding: 24px 0;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-logo {
+    padding: 0 20px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--sidebar-line);
+    margin-bottom: 12px;
+    color: #e8c99a;
+    letter-spacing: 0.06em;
+    text-align: center;
+}
+
+/* ─── NAV LINKS ──────────────────────────────────── */
+.sidebar ul {
+    list-style: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 10px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar ul li a i {
+    font-size: 1rem;
+    width: 18px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #f5ede0;
+}
+
+.sidebar ul li a.activo {
+    background-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ================================ START Dropdown ================================ */
+.sidebar .dropdown {
+    position: relative;
+}
+
+.sidebar .dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.sidebar .dropbtn .arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .dropdown-content {
+    display: none;
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+.sidebar .dropdown.show .dropdown-content {
+    display: block;
+}
+
+.sidebar .dropdown.show .arrow {
+    transform: rotate(180deg);
+}
+
+.sidebar .dropdown-content a {
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.sidebar .dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+}
+
+.sidebar .dropdown-content i {
+    width: 20px;
+    font-size: 14px;
+}
+
+/* ================================ END Dropdown ================================ */
+
+/* logout al fondo */
+.nav-logout {
+    margin-top: auto;
+}
+
+.nav-logout a {
+    color: var(--danger) !important;
+}
+
+.nav-logout a:hover {
+    background-color: rgba(232, 112, 90, 0.15) !important;
+    color: var(--danger) !important;
+}
+
+/* ─── MAIN ───────────────────────────────────────── */
+main {
+    margin-top: var(--topbar-h);
+    padding: 28px 24px;
+    min-height: 100vh;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.breadcrumb i {
+    font-size: 0.65rem;
+}
+
+.main-content {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e0d8d0;
+}
+
+.main-content p {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+#breadcrumb-page {
+    color: var(--text);
+}
+
+/* ─── TABLET / DESKTOP (≥ 768px) ─────────────────── */
+@media (min-width: 768px) {
+
+    .topbar {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        top: 0;
+    }
+
+    .overlay {
+        display: none !important;
+    }
+
+    main {
+        margin-top: 0;
+        margin-left: var(--sidebar-w);
+        padding: 36px 32px;
+    }
+
+    .breadcrumb-page {
+        color: var(--text);
+        font-weight: 600;
+    }
+}
+
+/* ─── MOBILE PEQUEÑO (≤ 360px) ───────────────────── */
+@media (max-width: 360px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    main {
+        padding: 20px 14px;
+    }
+}
+
+/* =============================================
+   DASHBOARD - SECCIÓN ASISTENCIAS
+   ============================================= */
+
+/* Encabezado de sección */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.section-title i {
+    color: var(--accent);
+}
+
+/* Badge con el total de registros */
+.badge-total {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.25rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Tabla de asistencias */
+.tabla-asistencias {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-asistencias thead {
+    background: var(--sidebar-bg);
+    color: #e8c99a;
+}
+
+.tabla-asistencias th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.4px;
+}
+
+.tabla-asistencias td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f0ebe3;
+    color: var(--text);
+    vertical-align: middle;
+}
+
+.tabla-asistencias tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-asistencias tbody tr:hover {
+    background: #fdf6ef;
+    transition: background 0.15s ease;
+}
+
+/* Icono de empleado en la celda */
+.empleado-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.empleado-icon {
+    font-size: 1.3rem;
+    color: var(--muted);
+}
+
+/* Icono de reloj junto a la hora */
+.icono-hora {
+    color: var(--muted);
+    margin-right: 0.3rem;
+    font-size: 0.85rem;
+}
+
+/* Etiqueta de cargo */
+.cargo-label {
+    display: inline-block;
+    background: #f5ede0;
+    color: var(--sidebar-bg);
+    padding: 0.18rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* Badges de estado */
+.estado-badge {
+    display: inline-block;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+}
+
+.estado-asistio {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.estado-tardanza {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.estado-falto {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Texto cuando el empleado sigue en turno */
+.sin-salida {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+/* Estado vacío - sin registros hoy */
+.empty-state {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    color: var(--muted);
+}
+
+.empty-state i {
+    font-size: 2.8rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    color: #e0d8d0;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    margin: 0;
+}

@@ -1,0 +1,241 @@
+/* =============================================
+   USUARIOS - GESTIÓN
+   Archivo: public/css/usuarios.css
+   ============================================= */
+
+/* Botón agregar nuevo usuario */
+.btn-agregar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-agregar:hover {
+    opacity: 0.88;
+}
+
+/* Badges de rol */
+.rol-badge {
+    display: inline-block;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.rol-superadmin {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.rol-admin {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* Botones de acciones en la tabla */
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-editar,
+.btn-eliminar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-editar {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.btn-eliminar {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-editar:hover,
+.btn-eliminar:hover {
+    opacity: 0.8;
+}
+
+/* ── MODAL ───────────────────────────────────── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: modalEntrar 0.2s ease;
+}
+
+@keyframes modalEntrar {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--sidebar-bg);
+    color: #e8c99a;
+}
+
+.modal-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.modal-cerrar {
+    background: none;
+    border: none;
+    color: #e8c99a;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.modal-cerrar:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.campo label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.campo input,
+.campo select {
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #e0d8d0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: var(--accent);
+}
+
+#clave-hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.modal-error {
+    color: #991b1b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-height: 1rem;
+    margin: 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #f0ebe3;
+}
+
+.btn-cancelar {
+    padding: 0.45rem 1rem;
+    background: #f0ebe3;
+    color: var(--text);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-guardar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.1rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-cancelar:hover,
+.btn-guardar:hover {
+    opacity: 0.88;
+}

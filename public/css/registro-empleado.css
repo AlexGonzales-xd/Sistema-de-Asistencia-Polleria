@@ -1,0 +1,218 @@
+/* ============================================================
+   registro-empleado.css — Estilos exclusivos del formulario
+   Paleta: marrón cacao #3d2b1f · naranja #e8943a · crema #f0ebe3
+   ============================================================ */
+
+/* ─── CABECERA ──────────────────────────────────── */
+.registro-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.registro-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2c1a0e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.registro-title i {
+    color: #e8943a;
+}
+
+.registro-subtitle {
+    font-size: 0.8rem;
+    color: #8a7060;
+    margin-top: 3px;
+}
+
+/* ─── BOTÓN VOLVER ──────────────────────────────── */
+.btn-volver {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: #f0ebe3;
+    color: #5c3d2e;
+    border: 1px solid #d9cfc7;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-volver:hover {
+    background: #e0d8d0;
+}
+
+/* ─── FORMULARIO ────────────────────────────────── */
+.registro-form {
+    width: 100%;
+}
+
+/* FILAS DE 2 COLUMNAS */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* GRUPO */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group--full {
+    grid-column: 1 / -1;
+}
+
+/* ─── LABELS ────────────────────────────────────── */
+.form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #5c3d2e;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group label i {
+    color: #e8943a;
+    font-size: 0.75rem;
+}
+
+/* ─── INPUTS ────────────────────────────────────── */
+.form-group input,
+.form-group select {
+    padding: 11px 14px;
+    border: 1.5px solid #d9cfc7;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #2c1a0e;
+    background: #faf8f5;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    font-family: 'Poppins', sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-group input::placeholder {
+    color: #b89880;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #e8943a;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(232, 148, 58, 0.15);
+}
+
+/* SELECT con flecha personalizada */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e8943a' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 38px;
+    cursor: pointer;
+}
+
+.form-group select option[disabled] {
+    color: #b89880;
+}
+
+/* ─── BOTONES ACCIONES ──────────────────────────── */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #f0ebe3;
+}
+
+.btn-cancelar {
+    padding: 11px 20px;
+    background: #f0ebe3;
+    color: #5c3d2e;
+    border: 1px solid #d9cfc7;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-cancelar:hover {
+    background: #e0d8d0;
+}
+
+.btn-guardar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: #e8943a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-guardar:hover {
+    background: #c97828;
+    transform: translateY(-1px);
+}
+
+.btn-guardar:active {
+    transform: translateY(0);
+}
+
+/* ─── RESPONSIVE MÓVIL ──────────────────────────── */
+@media (max-width: 480px) {
+    .registro-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-volver {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancelar,
+    .btn-guardar {
+        width: 100%;
+        justify-content: center;
+    }
+}
