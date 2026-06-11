@@ -8,17 +8,12 @@
 
 :root {
     --bg: #f0ebe3;
-    /* crema cálido — mismo que el login */
     --text: #2c1a0e;
-    /* marrón oscuro */
     --sidebar-w: 220px;
     --sidebar-bg: #3d2b1f;
-    /* marrón cacao — mismo que columna izquierda login */
     --sidebar-line: rgba(255, 255, 255, 0.08);
     --muted: #b89880;
-    /* beige apagado para items inactivos */
     --accent: #e8943a;
-    /* naranja ahumado — mismo que botón login */
     --topbar-bg: #ffffff;
     --topbar-line: #e0d8d0;
     --topbar-h: 56px;
@@ -203,7 +198,6 @@ body {
 
 /* ================================ END Dropdown ================================ */
 
-/* logout al fondo */
 .nav-logout {
     margin-top: auto;
 }
@@ -256,7 +250,6 @@ main {
 
 /* ─── TABLET / DESKTOP (≥ 768px) ─────────────────── */
 @media (min-width: 768px) {
-
     .topbar {
         display: none;
     }
@@ -297,7 +290,6 @@ main {
    DASHBOARD - SECCIÓN ASISTENCIAS
    ============================================= */
 
-/* Encabezado de sección */
 .dashboard-header {
     display: flex;
     align-items: center;
@@ -319,7 +311,6 @@ main {
     color: var(--accent);
 }
 
-/* Badge con el total de registros */
 .badge-total {
     background: var(--accent);
     color: #fff;
@@ -330,7 +321,13 @@ main {
     letter-spacing: 0.3px;
 }
 
-/* Tabla de asistencias */
+/* Tabla scrolleable en móvil */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 .tabla-asistencias {
     width: 100%;
     border-collapse: collapse;
@@ -369,7 +366,6 @@ main {
     transition: background 0.15s ease;
 }
 
-/* Icono de empleado en la celda */
 .empleado-info {
     display: flex;
     align-items: center;
@@ -381,14 +377,12 @@ main {
     color: var(--muted);
 }
 
-/* Icono de reloj junto a la hora */
 .icono-hora {
     color: var(--muted);
     margin-right: 0.3rem;
     font-size: 0.85rem;
 }
 
-/* Etiqueta de cargo */
 .cargo-label {
     display: inline-block;
     background: #f5ede0;
@@ -399,7 +393,6 @@ main {
     font-weight: 600;
 }
 
-/* Badges de estado */
 .estado-badge {
     display: inline-block;
     padding: 0.22rem 0.7rem;
@@ -425,14 +418,12 @@ main {
     color: #991b1b;
 }
 
-/* Texto cuando el empleado sigue en turno */
 .sin-salida {
     color: var(--muted);
     font-style: italic;
     font-size: 0.85rem;
 }
 
-/* Estado vacío - sin registros hoy */
 .empty-state {
     text-align: center;
     padding: 3.5rem 1rem;
@@ -449,4 +440,55 @@ main {
 .empty-state p {
     font-size: 0.95rem;
     margin: 0;
+}
+
+/* ─── RESPONSIVE MÓVIL (≤ 767px) ─────────────────── */
+@media (max-width: 767px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .tabla-asistencias th,
+    .tabla-asistencias td {
+        padding: 0.6rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    /* Ocultar columnas: #, Cargo y Hora salida */
+    .tabla-asistencias th:first-child,
+    .tabla-asistencias td:first-child,
+    .tabla-asistencias th:nth-child(3),
+    .tabla-asistencias td:nth-child(3),
+    .tabla-asistencias th:nth-child(5),
+    .tabla-asistencias td:nth-child(5) {
+        display: none;
+    }
+
+    .cargo-label {
+        font-size: 0.72rem;
+        padding: 0.15rem 0.5rem;
+    }
+
+    .estado-badge {
+        font-size: 0.72rem;
+        padding: 0.18rem 0.55rem;
+    }
+
+    .empleado-info {
+        gap: 0.3rem;
+    }
+
+    .empleado-icon {
+        font-size: 1rem;
+    }
 }
