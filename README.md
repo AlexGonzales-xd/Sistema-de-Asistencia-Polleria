@@ -245,7 +245,8 @@ Falta integrar
 
  
 ### Modelo Relacional (MR)
-![MODELO_RELACIONAL](https://raw.githubusercontent.com/ojitoslanda/testing/refs/heads/master/img/db.png)
+![MODELO_RELACIONAL](<img width="907" height="680" alt="image" src="https://github.com/user-attachments/assets/6d3a5ef7-0b56-4908-a501-d1ec3ff227c4" />
+)
 
 ### Cardinalidades
 
