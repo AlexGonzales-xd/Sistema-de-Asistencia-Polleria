@@ -1,10 +1,10 @@
 # Sistema de Control de Asistencia de Empleados
-### Employee Attendance System
+### Sistema de Asistencia de la Polleria Tío Gustón
 Aplicación web para el registro y gestión de asistencia del personal, desarrollada en **PHP puro con arquitectura MVC desde cero**, **Programación Orientada a Objetos (POO)**, **PDO** y **MariaDB** como base de datos.
 
 ## 1. Descripción del Negocio
 
-Las organizaciones modernas necesitan gestionar la asistencia de su personal de forma precisa y centralizada (Solo de un turno). Este sistema reemplaza los registros manuales en papel o planillas físicas, eliminando problemas como:
+Pollería Tío Gustón es un restaurante especializado en la preparación y venta de pollo a la brasa, comprometido con ofrecer a nuestros clientes una experiencia gastronómica de calidad, sabor auténtico y atención personalizada. Contamos con ingredientes frescos seleccionados diariamente, recetas propias con un toque especial de especias y un ambiente familiar cálido que nos hace el lugar ideal para compartir momentos inolvidables. Desde nuestros inicios, hemos trabajado con dedicación para convertirnos en el sabor preferido de la comunidad, manteniendo siempre los más altos estándares de higiene y servicio.
 
 - Registros incompletos o manipulados
 - Alto costo administrativo por procesar asistencias manualmente
@@ -15,7 +15,16 @@ Las organizaciones modernas necesitan gestionar la asistencia de su personal de 
 ## 2. Problema y Solución
 
 ### Problema Identificado
-Las empresas carecen de un sistema digital accesible para registrar, monitorear y gestionar la asistencia de sus empleados. El control manual genera imprecisiones, pérdidas de información y dificulta la toma de decisiones basadas en datos confiables.
+La Pollería Tío Gustón, como muchos restaurantes en crecimiento, enfrenta serias dificultades en la gestión del personal. Actualmente el control de asistencia de los empleados se realiza de forma manual, ya sea mediante cuadernos de registro o planillas en papel, lo que genera los siguientes problemas:
+
+• Pérdida o deterioro de los registros físicos de asistencia.
+• Dificultad para calcular tardanzas, faltas y horas trabajadas de forma precisa.
+• Falta de acceso rápido al historial de asistencia de cada empleado.
+• Imposibilidad de generar reportes para la toma de decisiones del administrador.
+• Riesgo de manipulación o error humano en los registros.
+• Tiempo excesivo invertido por el supervisor en consolidar la información de asistencia mensualmente.
+
+Esta situación provoca desorganización interna, posibles injusticias en el pago del personal y una gestión ineficiente de los recursos humanos del restaurante.
 
 ### Causas
 - Ausencia de una herramienta digital centralizada para marcar asistencia
@@ -30,14 +39,24 @@ Las empresas carecen de un sistema digital accesible para registrar, monitorear 
 
 ### Solución Propuesta
 
-Desarrollar una aplicación web con **PHP + POO + MVC** que permita:
+Como solución a esta problemática, se propone el desarrollo de un Sistema Web de Control de Asistencia para la Pollería Tío Gustón, desarrollado en PHP con base de datos MySQL.
 
-- Autenticar usuarios con roles diferenciados (administrador / empleado)
-- Registrar asistencia con fecha y hora exactas usando PDO y MariaDB
-- Gestionar el catálogo de empleados y departamentos (CRUD completo)
-- Consultar y filtrar el historial de asistencias por empleado y fecha
-- Visualizar un dashboard con el estado de asistencia del día en curso
-- 
+El sistema permitirá:
+
+✔ Registrar la hora de entrada y salida de cada empleado de forma digital y en tiempo real.
+✔ Clasificar automáticamente el estado de asistencia: asistió, tardanza o falta.
+✔ Gestionar el catálogo de empleados y sus cargos (administrador, cocinero, cajero, delivery, etc.).
+✔ Controlar el acceso al sistema mediante roles de usuario: admin y superadmin.
+✔ Generar reportes de asistencia por empleado, por fecha o por período.
+✔ Consultar el historial de asistencia desde cualquier dispositivo con navegador web.
+
+Tecnologías utilizadas:
+• Frontend: HTML5, CSS3, Bootstrap
+• Backend: PHP 8
+• Base de datos: MySQL (InnoDB, utf8mb4)
+• Servidor: Apache (XAMPP / WAMP)
+
+Con este sistema, la Pollería Tío Gustón podrá modernizar su gestión de personal, reducir errores, ahorrar tiempo administrativo y tomar decisiones más informadas sobre su equipo de trabajo.
 ## 3. Preanálisis
 
 ### Necesidades Identificadas
@@ -144,7 +163,7 @@ cp .env.example .env
 Falta integrar
 
 ### DIAGRAMA DE FIGMA UI/UX
-https://www.figma.com/design/tCp01HDp9aw4ZK2l2dIRlU/SistemaDeAsistencia?node-id=119-3&p=f&t=mw94LWMpBFkMuaTz-0
+[Figma](https://www.figma.com/design/tCp01HDp9aw4ZK2l2dIRlU/SistemaDeAsistencia?node-id=119-3&p=f&t=mw94LWMpBFkMuaTz-0);
 ## Base de datos
 ```sql
 -- ============================================================
