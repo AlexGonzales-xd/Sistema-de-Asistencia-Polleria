@@ -117,11 +117,79 @@ body {
     font-family: 'Poppins', sans-serif;
     background: white;
     outline: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .barcode-wrap input:focus {
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
 }
 
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+        min-height: 100vh;
+        overflow: auto;
+    }
 
+    .panel-left {
+        padding: 80px 1.5rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .logo {
+        width: 100%;
+        top: 1rem;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    .avatar-box {
+        width: 140px;
+        height: 140px;
+    }
+
+    .empleado-nombre {
+        font-size: 1.2rem;
+    }
+
+    .panel-right {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .reloj {
+        font-size: 52px;
+        padding: 0.6rem 1.6rem;
+        border-radius: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .barcode-wrap {
+        width: 100%;
+    }
+
+    .barcode-wrap input {
+        font-size: 1rem;
+        padding: 1rem 1rem 1rem 3.2rem;
+    }
+
+    .barcode-icon {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .reloj {
+        font-size: 40px;
+    }
+
+    .empleado-nombre {
+        font-size: 1rem;
+    }
+}
